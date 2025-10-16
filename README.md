@@ -4,6 +4,7 @@
 ![Authentication](https://img.shields.io/badge/Auth-Secure-blue?style=flat-square)
 ![Responsive](https://img.shields.io/badge/UI-Responsive-orange?style=flat-square)
 ![Personal Project](https://img.shields.io/badge/Project-Type%3A%20Personal-lightgrey?style=flat-square)
+![AI](https://img.shields.io/badge/Powered%20By-AI-purple?style=flat-square)
 
 **FitTrack** is a full-stack fitness tracking web application that helps users monitor their workouts, meals, and calorie intake effortlessly.  
 With an interactive dashboard, users can set fitness goals, view their progress through analytics, and maintain a healthy lifestyle — all in one place.
