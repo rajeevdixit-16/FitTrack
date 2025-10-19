@@ -12,6 +12,7 @@ import Goals from './pages/Goals';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import LandingPage from './pages/Landing';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -54,13 +55,13 @@ const MainContent = styled.main`
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
-  
+
   if (loading) {
     return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         height: '100vh',
         color: 'white',
         fontSize: '1.2rem'
@@ -69,7 +70,7 @@ const ProtectedRoute = ({ children }) => {
       </div>
     );
   }
-  
+
   return user ? children : <Navigate to="/login" />;
 };
 
@@ -82,49 +83,56 @@ function App() {
           <Navbar />
           <MainContent>
             <Routes>
+              {/* Default landing page */}
+              <Route path="/" element={<LandingPage />} />
+
+              {/* Auth routes */}
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route 
-                path="/" 
+
+              {/* Protected routes */}
+              <Route
+                path="/dashboard"
                 element={
                   <ProtectedRoute>
                     <Dashboard />
                   </ProtectedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/workouts" 
+              <Route
+                path="/workouts"
                 element={
                   <ProtectedRoute>
                     <Workouts />
                   </ProtectedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/nutrition" 
+              <Route
+                path="/nutrition"
                 element={
                   <ProtectedRoute>
                     <Nutrition />
                   </ProtectedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/goals" 
+              <Route
+                path="/goals"
                 element={
                   <ProtectedRoute>
                     <Goals />
                   </ProtectedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/profile" 
+              <Route
+                path="/profile"
                 element={
                   <ProtectedRoute>
                     <Profile />
                   </ProtectedRoute>
-                } 
+                }
               />
             </Routes>
+
           </MainContent>
         </AppContainer>
       </AuthProvider>
